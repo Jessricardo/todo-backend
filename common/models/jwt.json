@@ -1,0 +1,25 @@
+{
+  "name": "jwt",
+  "plural": "jwts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "token": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "usuario": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

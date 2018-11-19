@@ -1,0 +1,43 @@
+{
+  "name": "list",
+  "plural": "lists",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "createdAt": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "items": {
+      "type": "hasMany",
+      "model": "item",
+      "foreignKey": ""
+    },
+    "usuario": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "scope": {
+    "include": "items"
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
